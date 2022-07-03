@@ -2,39 +2,37 @@ package com.demo.androidarchitecturecomponent
 
 import android.content.Context
 import android.widget.Toast
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.*
 
-class Observer(private val context: Context): LifecycleObserver {
+class Observer(private val context: Context): DefaultLifecycleObserver {
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    fun onCreate(){
+    override fun onCreate(owner: LifecycleOwner) {
         Toast.makeText(context, "Observer - OnCreate", Toast.LENGTH_SHORT).show()
+        super.onCreate(owner)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    fun onStart(){
+    override fun onStart(owner: LifecycleOwner) {
         Toast.makeText(context, "Observer - OnStart", Toast.LENGTH_SHORT).show()
+        super.onStart(owner)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun onResume(){
+    override fun onResume(owner: LifecycleOwner) {
         Toast.makeText(context, "Observer - OnResume", Toast.LENGTH_SHORT).show()
+        super.onResume(owner)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    fun onPause(){
+    override fun onPause(owner: LifecycleOwner) {
         Toast.makeText(context, "Observer - OnPause", Toast.LENGTH_SHORT).show()
+        super.onPause(owner)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    fun onStop(){
+    override fun onStop(owner: LifecycleOwner) {
         Toast.makeText(context, "Observer - OnStop", Toast.LENGTH_SHORT).show()
+        super.onStop(owner)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    fun onDestroy(){
+    override fun onDestroy(owner: LifecycleOwner) {
         Toast.makeText(context, "Observer - OnDestroy", Toast.LENGTH_SHORT).show()
+        super.onDestroy(owner)
     }
 }
